@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wink Cover"
-description: "Instructions how to setup the Wink garage doors within Home Assistant."
+description: "Instructions on how to setup the Wink garage doors within Home Assistant."
 date: 2016-06-28 17:30
 sidebar: true
 comments: false
@@ -31,6 +31,6 @@ The requirement is that you have setup [Wink](/components/wink/).
 - Chamberlain (Limited functionality) (No Wink hub required)
 
 <p class='note'>
-The above devices are confimed to work, but others may work as well.
+The above devices are confirmed to work, but others may work as well.
 </p>
 

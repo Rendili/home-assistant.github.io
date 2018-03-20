@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Command line Sensor"
-description: "Instructions how to integrate command line sensors into Home Assistant."
+description: "Instructions on how to integrate command line sensors into Home Assistant."
 date: 2015-09-13 10:10
 sidebar: true
 comments: false
@@ -81,7 +81,7 @@ If you'd like to know how many failed login attempts are made to Home Assistant,
 sensor:
   - platform: command_line
     name: badlogin
-    command: grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log
+    command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
 ```
 
 Make sure to configure the [logger component](/components/logger) to monitor the [http component](https://home-assistant.io/components/http/) at least the `warning` level.
@@ -143,7 +143,6 @@ sensor:
   - platform: command_line
     name: Brightness
     command: "python3 /path/to/script/arest-value.py"
-    unit_of_measurement: "°C"
 ```
 
 ### {% linkable_title Usage of templating in `command:` %}
@@ -155,6 +154,6 @@ sensor:
 sensor:
   - platform: command_line
     name: wind direction
-    command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states.sensor.wind_direction.state }}'
+    command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {% raw %}{{ states.sensor.wind_direction.state }}{% endraw %}'
     unit_of_measurement: "Direction"
 ```

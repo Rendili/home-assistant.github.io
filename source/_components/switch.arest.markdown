@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "aREST Switch"
-description: "Instructions how to integrate aREST switches within Home Assistant."
+description: "Instructions on how to integrate aREST switches within Home Assistant."
 date: 2015-09-11 23:15
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_iot_class: "Local Polling"
 ha_release: 0.16
 ---
 
-The `arest` switch platform allows you to toggle pins of your devices (like Arduino boards with a ethernet/wifi connection, ESP8266 based devices, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
+The `arest` switch platform allows you to toggle pins of your devices (like Arduino boards with a Ethernet/Wifi connection, ESP8266 based devices, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
 
 To use your aREST enabled device with pins in your installation, add the following to your `configuration.yaml` file:
 
@@ -43,7 +43,7 @@ switch:
 Configuration variables:
 
 - **resource** (*Required*): IP address and schema of the device that is exposing an aREST API, eg. http://192.168.1.10 (no-trailing slash)
-- **name** (*Optional*): Let you overwrite the the name of the device. By default *name* from the device is used.
+- **name** (*Optional*): Let you overwrite the name of the device. By default *name* from the device is used.
 - **pins** array (*Optional*): An array with all used pins.
   - **name** (*Required*): The name of the pin to use in the frontend.
 

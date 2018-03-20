@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Configuration Backup to GitHub"
-description: "Instructions how backup your Home Assistant configuration to GitHub"
+description: "Instructions on how backup your Home Assistant configuration to GitHub"
 date: 2017-01-05 18:00
 sidebar: true
 comments: false
@@ -30,7 +30,7 @@ Some best practices to consider before putting your configuration on GitHub:
 
 - Extensive use of [secrets.yaml](https://home-assistant.io/topics/secrets/) to hide sensitive information like usernames, passwords, device information, and location
 - Exclusion of some files, including `secrets.yaml` and device-specific information using a [`.gitignore`](https://git-scm.com/docs/gitignore) file
-- Regularly commiting your configuration to GitHub to make sure that your backup is up to date
+- Regularly committing your configuration to GitHub to make sure that your backup is up to date
 - Use a README.md to document your configuration and include screenshots of your Home Assistant GUI
 
 ### {% linkable_title Step 1: Installing and Initializing Git %}
@@ -127,13 +127,13 @@ git push origin master
 exit
 ```
 
-Every time you run this script, you will be prompted for a comment to describe the change(s) that you are commiting. This comment will be displayed beside each changed file on GitHub and will be stored after each commit.  You will also be asked to enter your GitHub username and password (or ssh key passphrase if you use [GitHub with ssh](https://help.github.com/categories/ssh/)).
+Every time you run this script, you will be prompted for a comment to describe the change(s) that you are committing. This comment will be displayed beside each changed file on GitHub and will be stored after each commit.  You will also be asked to enter your GitHub username and password (or ssh key passphrase if you use [GitHub with ssh](https://help.github.com/categories/ssh/)).
 
 ### {% linkable_title Step 7: Configuration file testing %}
 
 [Travis CI](https://travis-ci.org) is a continuous integration testing system that runs every time the code in your repository is updated and allows you to validate that your code works on a fresh install.
 
-- [Authorise Travis CI](https://travis-ci.org/auth) to have access to your github repos.
+- [Authorize Travis CI](https://travis-ci.org/auth) to have access to your github repos.
 - Create the build script that travis will run to test your repo.
 - Create a dummy secrets.yaml for Travis.
 
@@ -141,7 +141,7 @@ Example .travis.yml
 ```yaml
 language: python
 python:
-  - "3.4"
+  - "3.5"
 before_install:
   - mv travis_secrets.yaml secrets.yaml
 install:
@@ -162,7 +162,7 @@ home_elevation: 0
 
 ### {% linkable_title Extra commands %}
 
-You can enter these commands to get a list of the files in your local git repository and a status of files that have changed but not commited yet:
+You can enter these commands to get a list of the files in your local git repository and a status of files that have changed but not committed yet:
 
 
 ```bash

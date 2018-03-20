@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Buienradar Weather"
-description: "Instructions how to integrate buienradar.nl weather within Home Assistant."
+title: "Buienradar"
+description: "Instructions on how to integrate buienradar.nl weather within Home Assistant."
 date: 2017-05-15 14:00
 sidebar: true
 comments: false
@@ -47,7 +47,7 @@ weather:
 
 <p class='note'>
 This platform is an alternative to the [`buienradar`](/components/sensor.buienradar/) sensor.
-The weather platform is easier to configure but less customisable.
+The weather platform is easier to configure but less customizable.
 </p>
 
 [Usage statement:](https://www.buienradar.nl/overbuienradar/gratis-weerdata)

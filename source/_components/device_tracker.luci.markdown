@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "OpenWRT (luci)"
-description: "Instructions how to integrate OpenWRT routers into Home Assistant."
+description: "Instructions on how to integrate OpenWRT routers into Home Assistant."
 date: 2015-03-23 19:59
 sidebar: true
 comments: false
@@ -15,6 +15,10 @@ ha_release: pre 0.7
 _This is one of the two ways we support OpenWRT. If you encounter problems, try [ubus](/components/device_tracker.ubus/)._
 
 This is a presence detection scanner for OpenWRT using [luci](http://wiki.openwrt.org/doc/techref/luci).
+
+<p class='note'>
+This component requires a [workaround](https://github.com/home-assistant/home-assistant/issues/1258#issuecomment-252469880) when using luci with HTTPS and a self-signed certificate.
+</p>
 
 Before this scanner can be used you have to install the luci RPC package on OpenWRT:
 
@@ -35,7 +39,7 @@ device_tracker:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your router, e.g. `192.168.1.1`.
+- **host** (*Required*): The IP address of your router, e.g., `192.168.1.1`.
 - **username** (*Required*): The username of an user with administrative privileges, usually `admin`.
 - **password** (*Required*): The password for your given admin account.
 

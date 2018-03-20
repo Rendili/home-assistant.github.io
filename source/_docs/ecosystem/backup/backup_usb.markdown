@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Configuration Backup to USB drive"
-description: "Instructions how backup your Home Assistant configuration to USB drive"
+description: "Instructions on how backup your Home Assistant configuration to USB drive"
 date: 2017-04-29 08:00
 sidebar: true
 comments: false
@@ -101,9 +101,9 @@ Change below path to where you placed the `usb_backup.sh` and run the following 
 
 ### {% linkable_title Auto mount %}
 
-This does not automaticly mount your USB drive at boot. You need to do that manually or add a line to your `/etc/fstab` file.
+This does not automatically mount your USB drive at boot. You need to do that manually or add a line to your `/etc/fstab` file.
 
-If your drive is on `/dev/sda1`, you could add a entry to your `/etc/fstab` like so:
+If your drive is on `/dev/sda1`, you could add an entry to your `/etc/fstab` like so:
 
 ```text
 /dev/sda1  /media               ext4    defaults,noatime  0       1

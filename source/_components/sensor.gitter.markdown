@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Gitter Sensor"
-description: "Instructions how to integrate a Gitter room sensor with Home Assistant"
+description: "Instructions on how to integrate a Gitter room sensor with Home Assistant"
 date: 2017-06-11 09:00
 sidebar: true
 comments: false
@@ -14,6 +14,8 @@ ha_release: 0.47
 
 
 This `gitter` sensor allows one to monitor a [Gitter.im](https://gitter.im) chatroom for unread messages.
+
+Visit [Gitter Developer Apps](https://developer.gitter.im/apps) to retrieve your "Personal Access Token".
 
 To use a Gitter sensor in your installation, add the following to your `configuration.yaml` file:
 

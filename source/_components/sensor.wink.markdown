@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wink Sensor"
-description: "Instructions how to setup the Wink sensors within Home Assistant."
+description: "Instructions on how to setup the Wink sensors within Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
 comments: false
@@ -30,6 +30,6 @@ The requirement is that you have setup [Wink](/components/wink/).
 - Quirky refuel propane tank monitor (No Wink hub required)
 
 <p class='note'>
-The above devices are confimed to work, but others may work as well.
+The above devices are confirmed to work, but others may work as well.
 </p>
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Template Switch"
-description: "Instructions how to integrate Template Switches into Home Assistant."
+description: "Instructions on how to integrate Template Switches into Home Assistant."
 date: 2016-02-07 07:00
 sidebar: true
 comments: false
@@ -56,7 +56,7 @@ switch:
         required: false
         type: string
       entity_id:
-        description: Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the switch will try to update its state.
+        description: A list of entity IDs so the switch only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
         required: false
         type: [string, list]
       value_template:
@@ -71,6 +71,10 @@ switch:
         description: Defines an action to run when the switch is turned off.
         required: true
         type: action
+      icon_template:
+        description: Defines a template for the icon of the switch.
+        required: false
+        type: template
 {% endconfiguration %}
 
 ## {% linkable_title Considerations %}
@@ -183,6 +187,34 @@ switch:
             mdi:garage-open
           {% else %}
             mdi:garage
+          {% endif %}
+```
+{% endraw %}
+
+### {% linkable_title Change The Entity Picture %}
+
+This example shows how to change the entity picture based on the day/night cycle.
+
+{% raw %}
+```yaml
+switch:
+  - platform: template
+    switches:
+      garage:
+        value_template: "{{ is_state('cover.garage_door', 'on') }}"
+        turn_on:
+          service: cover.open_cover
+          data:
+            entity_id: cover.garage_door
+        turn_off:
+          service: cover.close_cover
+          data:
+            entity_id: cover.garage_door
+        entity_picture_template: >-
+          {% if is_state('cover.garage_door', 'open') %}
+            /local/garage-open.png
+          {% else %}
+            /local/garage-closed.png
           {% endif %}
 ```
 {% endraw %}

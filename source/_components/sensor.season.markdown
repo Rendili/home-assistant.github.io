@@ -1,13 +1,14 @@
 ---
 layout: page
 title: "Season Sensor"
-description: "Instructions how to add season sensors into Home Assistant."
+description: "Instructions on how to add season sensors into Home Assistant."
 date: 2017-07-04 07:00:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Sensor
+logo: home-assistant.png
 ha_iot_class: "Local Polling"
 ha_release: 0.53
 ---

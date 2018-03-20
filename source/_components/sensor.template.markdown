@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Template Sensor"
-description: "Instructions how to integrate Template Sensors into Home Assistant."
+description: "Instructions on how to integrate Template Sensors into Home Assistant."
 date: 2016-01-27 07:00
 sidebar: true
 comments: false
@@ -45,8 +45,12 @@ sensor:
         description: Name to use in the frontend.
         required: false
         type: string
+      friendly_name_template:
+        description: Defines a template for the name to be used in the frontend (this overrides friendly_name).
+        required: false
+        type: template
       entity_id:
-        description: Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update its state.
+        description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
         required: false
         type: string, list
       unit_of_measurement:
@@ -61,17 +65,20 @@ sensor:
         description: Defines a template for the icon of the sensor.
         required: false
         type: template
+      entity_picture_template:
+        description: Defines a template for the entity picture of the sensor.
+        required: false
+        type: template
 {% endconfiguration %}
 
 ## {% linkable_title Considerations %}
 
 If you are using the state of a platform that takes extra time to load, the
-Template Sensor may get an `unknown` state during startup. This results
-in error messages in your log file until that platform has completed loading.
-If you use `is_state()` function in your template, you can avoid this situation.
+Template Sensor may get an `unknown` state during startup. To avoid this (and the resulting
+error messages in your log file), you can use `is_state()` function in your template.
 For example, you would replace
 {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %}
-with this equivalent that returns `true`/`false` and never gives an unknown
+with this equivalent that returns `true`/`false` and never gives an `unknown`
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
@@ -213,5 +220,73 @@ sensor:
           {% else %}
             mdi:weather-night
           {% endif %}
+```
+{% endraw %}
+
+### {% linkable_title Change The Entity Picture %}
+
+This example shows how to change the entity picture based on the day/night cycle.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      day_night:
+        friendly_name: "Day/Night"
+        value_template: >-
+          {% if is_state('sun.sun', 'above_horizon') %}
+            Day
+          {% else %}
+            Night
+          {% endif %}
+        entity_picture_template: >-
+          {% if is_state('sun.sun', 'above_horizon') %}
+            /local/daytime.png
+          {% else %}
+            /local/nighttime.png
+          {% endif %}
+```
+{% endraw %}
+
+### {% linkable_title Change the Friendly Name Used in the Frontend %}
+
+This example shows how to change the `friendly_name` based on a date.
+Explanation: we add a multiple of 86400 seconds (= 1 day) to the current unix timestamp to get a future date.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      forecast_1_day_ahead:
+        friendly_name_template: >-
+          {%- set date = as_timestamp(now()) + (1 * 86400 ) -%}
+          {{ date|timestamp_custom("Tomorrow (%-m/%-d)") }}
+        value_template: "{{ sensor.darksky_weather_forecast_1 }}"
+      forecast_2_days_ahead:
+        friendly_name_template: >-
+          {%- set date = as_timestamp(now()) + (2 * 86400 ) -%}
+          {{ date|timestamp_custom("%A (%-m/%-d)") }}
+        value_template: "{{ sensor.darksky_weather_forecast_2 }}"
+```
+{% endraw %}
+
+This example shows how to change the `friendly_name` based on a state.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      net_power:
+        friendly_name_template: >-
+          {% if states('sensor.power_consumption')|float < 0 %}
+            Power Consumption
+          {% else %}
+            Power Production
+          {% end %}
+        value_template: "{{ states('sensor.power_consumption') }}"
+        unit_of_measurement: 'kW'
 ```
 {% endraw %}

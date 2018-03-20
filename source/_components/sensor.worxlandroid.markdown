@@ -1,12 +1,13 @@
 ---
 layout: page
 title: "Worx Landroid"
-description: "Instructions how to integrate Worx Landroid WG796E.1 or WG797E as sensors within Home Assistant."
+description: "Instructions on how to integrate Worx Landroid WG796E.1 or WG797E as sensors within Home Assistant."
 date: 2017-09-12 13:23
 sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: worx.png
 ha_category: DIY
 ha_release: 0.54
 ha_iot_class: "Local Polling"

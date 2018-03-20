@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Radarr Sensor"
-description: "Instructions how to integrate Radarr sensors with Home Assistant"
+description: "Instructions on how to integrate Radarr sensors with Home Assistant"
 date: 2017-05-04 00:00
 sidebar: true
 comments: false
@@ -37,7 +37,7 @@ Configuration variables:
   - **diskspace**: The available disk space.
   - **status**: The current system status information.
 - **days** (*Optional*): How many days to look ahead for the upcoming sensor, 1 means today only.  Defaults to 1.
-- **include_paths** (*Optional*): Array of filepaths to include when calculating diskspace. Leave blank to include all.
+- **include_paths** (*Optional*): Array of file paths to include when calculating diskspace. Leave blank to include all.
 - **unit**: (*Optional*): The unit to display disk space in. Defaults to GB.
 - **ssl**:  boolean (*Optional*): Whether or not to use SSL for Radarr.
 

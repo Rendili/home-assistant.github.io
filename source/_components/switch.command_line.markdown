@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Command line Switch"
-description: "Instructions how to have switches call command line commands."
+description: "Instructions on how to have switches call command line commands."
 date: 2015-06-10 22:41
 sidebar: true
 comments: false
@@ -21,11 +21,11 @@ To enable it, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_line
-  switches:
-    kitchen_light:
-      command_on: switch_command on kitchen
-      command_off: switch_command off kitchen
+  - platform: command_line
+    switches:
+      kitchen_light:
+        command_on: switch_command on kitchen
+        command_off: switch_command off kitchen
 ```
 
 Configuration variables:
@@ -40,7 +40,7 @@ Configuration variables:
 
 A note on `friendly_name`:
 
-When set, the `friendly_name` had been previously used for API calls and backend configuration instead of the `object_id` ("identifier"), but [this behavior is changing](https://github.com/home-assistant/home-assistant/pull/4343) to make the `friendly_name` for display purposes only. This allows users to set an `identifier` that emphasizes uniqueness and predictability for API and config purposes but have a prettier `friendly_name` still show up in the UI. As an additional benefit, if a user wanted to change the `friendly_name` / display name (e.g. from "Kitchen Lightswitch" to "Kitchen Switch" or "Living Room Light", or remove the `friendly_name` altogether), he or she could do so without needing to change existing automations or API calls. See aREST device below for an example. 
+When set, the `friendly_name` had been previously used for API calls and backend configuration instead of the `object_id` ("identifier"), but [this behavior is changing](https://github.com/home-assistant/home-assistant/pull/4343) to make the `friendly_name` for display purposes only. This allows users to set an `identifier` that emphasizes uniqueness and predictability for API and config purposes but have a prettier `friendly_name` still show up in the UI. As an additional benefit, if a user wanted to change the `friendly_name` / display name (e.g., from "Kitchen Lightswitch" to "Kitchen Switch" or "Living Room Light", or remove the `friendly_name` altogether), he or she could do so without needing to change existing automations or API calls. See aREST device below for an example. 
 
 ## {% linkable_title Examples %}
 
@@ -48,7 +48,7 @@ In this section you find some real life examples of how to use this switch.
 
 ### {% linkable_title aREST device %}
 
-The example below is doing the same as the [aREST switch](/components/switch.arest/). The commandline tool [`curl`](http://curl.haxx.se/) is used to toggle a pin which is controllable through REST.
+The example below is doing the same as the [aREST switch](/components/switch.arest/). The command line tool [`curl`](http://curl.haxx.se/) is used to toggle a pin which is controllable through REST.
 
 ```yaml
 # Example configuration.yaml entry

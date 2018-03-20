@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Sense HAT"
-description: "Instructions how to integrate Sense HAT within Home Assistant."
+description: "Instructions on how to integrate Sense HAT within Home Assistant."
 date: 2017-06-03 04:00
 sidebar: true
 comments: false
@@ -104,7 +104,7 @@ group:
 
 
 ### Directions for installing on Raspberry Pi All-In-One installer and HASSbian:
-Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual enviroment versions.
+Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual environment versions.
 
 #### Install SenseHAT package to _homeassistant_venv_
 ```bash
